@@ -1,0 +1,42 @@
+{
+  "name": "upgrade_template",
+  "description": "Detect and apply infrastructure template updates to a filled-out profile file.",
+  "inputSchema": {
+    "type": "object",
+    "required": ["profile_file_path", "infrastructure_template_path"],
+    "properties": {
+      "profile_file_path": {
+        "type": "string",
+        "description": "Absolute path to the filled-out profile file to upgrade."
+      },
+      "infrastructure_template_path": {
+        "type": "string",
+        "description": "Absolute path to the current infrastructure template for this file."
+      },
+      "auto_apply": {
+        "type": "boolean",
+        "default": false,
+        "description": "If true, apply all non-content-destructive changes without prompting. Defaults to false (interactive)."
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "string",
+        "enum": ["no-change", "updated", "review-required"]
+      },
+      "version_before": {"type": "string"},
+      "version_after": {"type": "string"},
+      "changes_applied": {
+        "type": "array",
+        "items": {"type": "string"}
+      },
+      "changes_pending_review": {
+        "type": "array",
+        "items": {"type": "string"}
+      }
+    }
+  }
+}
