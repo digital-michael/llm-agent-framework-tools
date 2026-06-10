@@ -33,6 +33,7 @@ You only need the implementation(s) for your platform. Teams may provide their o
 | `init-profile` | Scaffold a personal or team profile repo from infrastructure templates |
 | `upgrade-template` | Detect and apply infrastructure template updates to filled-out profile files |
 | `scaffold-project` | Write `.llm-framework.yml` for a new or existing project repo |
+| `retrofit-project` | Full onboarding for an existing project — governance scaffolding, domain repo context, lessons migration |
 
 See [`llm-agent-framework/docs/tooling.md`](../llm-agent-framework/docs/tooling.md) for full contract definitions.
 
