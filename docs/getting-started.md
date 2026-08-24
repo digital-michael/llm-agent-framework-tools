@@ -13,16 +13,6 @@
 
 ## Choose Your Platform
 
-### MCP (Model Context Protocol)
-
-For LLM clients that support MCP tool calling (Claude Desktop, VS Code with MCP extension, etc.):
-
-1. Configure your MCP client to load the server from `mcp/mcp.json`
-2. Set the `INFRASTRUCTURE_PATH` environment variable to your infrastructure repo path
-3. Tools will be available as callable tools in your LLM session
-
-See [../mcp/README.md](../mcp/README.md) for detailed setup.
-
 ### VS Code Copilot Skills
 
 For VS Code with GitHub Copilot:
@@ -56,4 +46,10 @@ See [../scripts/README.md](../scripts/README.md) for usage.
 
 ## Version Alignment
 
-This tooling repo tracks `llm-agent-framework` by template version. Check `mcp/mcp.json` or `scripts/init-profile.sh` for the `FRAMEWORK_VERSION` they were built against. If your infrastructure repo is on a newer version, update the tooling repo.
+This tooling repo tracks `llm-agent-framework` by template version. Check `scripts/init-profile.sh` for the `FRAMEWORK_VERSION` it was built against. If your infrastructure repo is on a newer version, update the tooling repo.
+
+---
+
+## MCP (Model Context Protocol)
+
+Not currently implemented in this repo. MCP remains a valid platform per the contract (`llm-agent-framework/docs/tooling.md`) — an `mcp/` stub existed here but was removed 2026-08-12 (never past its initial commit, no working implementation). The Shell Scripts fallback above already covers any MCP-capable client that can also shell out (e.g. Claude Code). Build a real implementation if a client that needs MCP tool calling *without* shell access emerges — don't resurrect the stub.

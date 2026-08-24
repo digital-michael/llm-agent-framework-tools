@@ -18,9 +18,10 @@ The infrastructure repo (`llm-agent-framework`) defines **what** each tool must 
 
 | Directory | Platform | Format |
 |---|---|---|
-| `mcp/` | Model Context Protocol | `mcp.json` server config + tool implementations |
 | `skills/` | VS Code Copilot | `SKILL.md` skill files |
 | `scripts/` | Platform-agnostic | Bash scripts (fallback for any environment) |
+
+MCP (Model Context Protocol) remains a valid platform per the contract (`llm-agent-framework/docs/tooling.md`), but this repo doesn't currently implement it — the `mcp/` stub here was removed 2026-08-12 (never past `Initial commit`, no working implementation, superseded by the scripts/skills implementations above). Build one if a real MCP-only consumer emerges; don't resurrect the stub.
 
 You only need the implementation(s) for your platform. Teams may provide their own implementations as long as they satisfy the contracts.
 
@@ -46,14 +47,6 @@ llm-agent-framework-tools/
 ├── README.md                      # This file
 ├── docs/
 │   └── getting-started.md         # How to install and use
-├── mcp/
-│   ├── README.md                  # MCP setup instructions
-│   ├── mcp.json                   # MCP server configuration
-│   └── tools/
-│       ├── README.md
-│       ├── init-profile/          # MCP tool: init-profile
-│       ├── upgrade-template/      # MCP tool: upgrade-template
-│       └── scaffold-project/      # MCP tool: scaffold-project
 ├── skills/
 │   ├── README.md                  # VS Code Copilot skill setup
 │   ├── init-profile/              # Skill: init-profile
@@ -75,7 +68,6 @@ llm-agent-framework/          ← infrastructure: stable, tooling-agnostic
   docs/tooling.md             ← contract definitions (source of truth)
 
 llm-agent-framework-tools/   ← this repo: platform-specific implementations
-  mcp/                        ← MCP implementation
   skills/                     ← VS Code Copilot implementation
   scripts/                    ← shell script fallback
 ```
